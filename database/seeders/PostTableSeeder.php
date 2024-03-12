@@ -18,5 +18,7 @@ class PostTableSeeder extends Seeder
         $a->name = "Author";
         $a->email = "a.tar@gmail.com";
         $a->save();
+
+        $a = Post::factory()->count(50)->create();
     }
 }

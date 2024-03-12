@@ -18,5 +18,8 @@ class CommentTableSeeder extends Seeder
         $a->name = "Tinashe";
         $a->email = "tin@gmail.com";
         $a->save();
+
+        $a = Comment::factory()->count(50)->create();
+
     }
 }
