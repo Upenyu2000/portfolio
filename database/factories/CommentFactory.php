@@ -21,6 +21,7 @@ class CommentFactory extends Factory
             //fake random data for comments
             'name' => fake()->name(),
             'email' => fake()->unique()->email(),
+            'post_id'=> fake()->numberBetween(1,2),
         ];
     }
 }
