@@ -6,16 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    #Run the migrations.
+    
     public function up(): void
     {
         Schema::create('post_comments', function (Blueprint $table) {
             $table->primary(['post_id', 'comment_id']);
             $table->bigInteger('post_id')->unsigned();
             $table->bigInteger('comment_id')->unsigned();
-            
             $table->timestamps();
 
             $table->foreign('post_id')->references('id')->on('posts')
@@ -25,10 +23,6 @@ return new class extends Migration
             ->onDelete('cascade')->onUpdate('cascade');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('post_comments');
