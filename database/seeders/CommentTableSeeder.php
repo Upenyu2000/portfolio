@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Comment;
+use App\Models\Post;
 
 class CommentTableSeeder extends Seeder
 {
@@ -14,13 +15,14 @@ class CommentTableSeeder extends Seeder
     public function run(): void
     {
         //creating datavase for comments
-        $a = new Comment;
-        $a->name = "Tinashe";
-        $a->email = "tin@gmail.com";
-        $a->post_id = 1;
-        $a->save();
-
-        $a = Comment::factory()->count(50)->create();
+        $comment = new Comment;
+        $comment->post_id=1;
+        $comment->name = "Tinashe";
+        $comment->email = "tin@gmail.com";
+        $comment->description = "Attack on titan is a good watch.";
+        $comment->save();
+    
+        $comment = Comment::factory()->count(50)->create();
 
     }
 }

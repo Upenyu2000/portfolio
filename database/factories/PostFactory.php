@@ -21,6 +21,7 @@ class PostFactory extends Factory
             //fake random data for posts 
             'name' => fake()->name(),
             'email' => fake()->unique()->email(),
+            'description' => fake()->text(),
         ];
     }
 }

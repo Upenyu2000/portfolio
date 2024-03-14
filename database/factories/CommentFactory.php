@@ -20,8 +20,9 @@ class CommentFactory extends Factory
         return [
             //fake random data for comments
             'name' => fake()->name(),
+            'post_id'=> fake()->numberBetween(1,50),
             'email' => fake()->unique()->email(),
-            'post_id'=> fake()->numberBetween(1,2),
+            'description'=> fake() ->text(),
         ];
     }
 }
