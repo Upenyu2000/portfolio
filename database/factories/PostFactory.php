@@ -19,8 +19,8 @@ class PostFactory extends Factory
     {
         return [
             //fake random data for posts 
-            'name' => fake()->name(),
-            'email' => fake()->unique()->email(),
+            'username' => fake()->unique()->userName(),
+            'title' => fake()->text(),
             'description' => fake()->text(),
         ];
     }

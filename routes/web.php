@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,23 +15,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    #return view('welcome');
     return view('welcome');
 });
 
-Route::any('/chat', function () {
-    return view('chat',['name' =>'Upenyu']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
-Route::any('/home', function () {
-    return view('homepage',['name' =>'Upenyu']);
+Route::get('/home/{post?}', function ($post = null) {
+    return view('homepage', ['name' => $post]);
 });
 
-Route::any('/about', function () {
-    return view('about',['name' =>'Upenyu']);
+Route::get('/about/{post?}', function ($post = null) {
+    return view('about', ['name' => $post]);
 });
 
-Route::any('/contact', function () {
-    return view('contact',['name' =>'Upenyu']);
+Route::get('/post',[App\Http\Controllers\PostController::class,'index'])->name('posts.index');
+
+Route::get('/comment',[App\Http\Controllers\CommentController::class,'index'])->name('comments.index');
+
+
+Route::get('/contact/{post?}', function ($post = null) {
+    return view('contact', ['name' => $post]);
 });
 
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

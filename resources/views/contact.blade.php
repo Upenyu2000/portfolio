@@ -4,14 +4,16 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Contact</title>
+    <title>About</title>
     
 
-</head><body>
-    <div class="logo">Upenyu Folio
-    </div>
+</head>
+<body>
+    <a href="http://localhost/home"><img class="logo" src="{{URL('images/logo.png')}}" alt=""></a>
+
     <div class="navbar">
-        <a href="http://localhost/home">
+        <nav>
+        <a href="http://localhost/home" >
             Home
         </a>
         
@@ -19,71 +21,127 @@
             Chat
         </a>
 
-        <a href="http://localhost/about">
+        <a href="http://localhost/about" >
             About
         </a>
 
-        <a href="http://localhost/contact">
+        <a href="http://localhost/contact" class="active">
             Contact
         </a>
+        </nav>
+    </div>
+    <div class="space">  </div>
+
+    <div class="pages">
+    <section class="zero">
+            <h1>Home</h1>
+        </section>
+
+        <section class="one">
+            <h1>About</h1>
+        </section>
+        
+        <section class="two">
+            <h1>Chat</h1>
+        </section>
+
     </div>
     
 </body>
+
 <style>
     *{
         font-family: "Kode Mono", monospace;
         color:white;
         text-decoration:none;
+        word-spacing:4px;
     }
 
-
-
-    body{ 
-        background-image: url('https://images3.alphacoders.com/133/1335950.png');
+    body{
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
         background-position:center;
-        opacity: 0.7;
-        
+        opacity: 0.8;
+        overflow-x:hidden;
+        z-index:-1;
     }
 
-a{
-    font-size:23px;
-    color:white;
-    padding: 8px;
-    padding-top:1px;
 
-}
+    a{
+        font-size:26px;
+        color:black;
+        padding-top:1px;
+        word-spacing:6px;
+        
 
-a:hover{
-    color: yellow;
-    font-size:25px;
-    position:center;
-    text-shadow:0px 1px 3px grey;
-    text-decoration-line: underline;
-    text-underline-position:center;
-    text-underline-offset: 8px;
-}
+    }
 
-.logo{
-    font-weight:bold;
-    color:white;
-    font-size:35px;
-    padding:20px;
-    float:left;
-}
+    a:hover{
+        transition: all 0.3s ease 0s;
+        color: red;
+        font-size:26px;
+        position:center;
+        text-shadow:0px 1px 3px grey;
+        text-decoration-line: underline;
+        text-underline-position:center;
+        text-underline-offset: 8px;
+        word-spacing:6px;
+        text-decoration:none;
+        font-weight:500;
+    }
+    .active{
+        font-size:26px;
+        color:red;
+    }
 
-.logo:hover{
-    color:yellow
-}
+    .logo{
+        font-weight:bold;
+        color:black;
+        float:left;
+        width: 110PX;
+        height: 110px;
 
-.navbar{
-    float:right;
-    font-weight:bold;
-    padding:30px;
-}
+    }
 
+
+    .navbar{
+        float:right;
+        font-weight:bold;
+        padding:30px;
+        text-decoration:none;
+    }
+
+    .space{
+        height:20vh;
+        width:20px;
+    }
+
+    section{
+        color: white;
+        height: 60vh;
+        display:flex;
+        justify-content:center;
+        padding-top:60vh;
+        margin:auto;
+
+    }    
+    .zero{
+        background-color:purple;
+        z-index:-1;
+
+    }
+
+
+    .one{
+        background-color:pink;
+
+    }
+
+    .two{
+        background-color:blue;
+        
+    }
 
     </style>
 </html>

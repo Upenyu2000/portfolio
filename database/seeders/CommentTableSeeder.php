@@ -17,8 +17,8 @@ class CommentTableSeeder extends Seeder
         //creating datavase for comments
         $comment = new Comment;
         $comment->post_id=1;
-        $comment->name = "Tinashe";
-        $comment->email = "tin@gmail.com";
+        $comment->username = "Tin53943";
+        $comment->title = "Anime recommendation";
         $comment->description = "Attack on titan is a good watch.";
         $comment->save();
     

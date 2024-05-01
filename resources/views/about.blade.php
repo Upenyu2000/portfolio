@@ -8,12 +8,12 @@
     
 
 </head>
-<body>
-    <header class="logo">Upenyu Folio
-</header>
+<body>    
+    <a href="http://localhost/home"><img class="logo" src="{{URL('images/logo.png')}}" alt=""></a>
+
     <div class="navbar">
         <nav>
-        <a href="http://localhost/home">
+        <a href="http://localhost/home" >
             Home
         </a>
         
@@ -21,7 +21,7 @@
             Chat
         </a>
 
-        <a href="http://localhost/about">
+        <a href="http://localhost/about" class="active">
             About
         </a>
 
@@ -57,8 +57,7 @@
         word-spacing:4px;
     }
 
-    body{ 
-        background-image: url("https://images6.alphacoders.com/129/1299626.jpg");
+    body{
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -70,8 +69,8 @@
 
 
     a{
-        font-size:23px;
-        color:white;
+        font-size:26px;
+        color:black;
         padding-top:1px;
         word-spacing:6px;
         
@@ -79,37 +78,43 @@
     }
 
     a:hover{
-        
-        color: yellow;
-        font-size:25px;
+        transition: all 0.3s ease 0s;
+        color: red;
+        font-size:26px;
         position:center;
         text-shadow:0px 1px 3px grey;
         text-decoration-line: underline;
         text-underline-position:center;
         text-underline-offset: 8px;
         word-spacing:6px;
+        text-decoration:none;
+        font-weight:500;
+    }
+    .active{
+        font-size:26px;
+        color:red;
     }
 
     .logo{
         font-weight:bold;
-        color:white;
-        font-size:35px;
-        padding:20px;
+        color:black;
         float:left;
+        width: 110PX;
+        height: 110px;
+
     }
 
-    .logo:hover{
-        color:yellow
-    }
 
     .navbar{
         float:right;
         font-weight:bold;
         padding:30px;
+        text-decoration:none;
     }
 
     .space{
         height:20vh;
+        width:20px;
     }
 
     section{

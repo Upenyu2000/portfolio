@@ -16,9 +16,9 @@ class PostTableSeeder extends Seeder
     {
         //Creating data for Posts
         $post = new Post;
-        $post->name = "Author";
-        $post->email = "a.tar@gmail.com";
-        $post->description = "What good anime can you recommend?";
+        $post->username = "Auth543";
+        $post->title = "Gimme a good movie";
+        $post->description = "Batman is a good watch";
         $post->save();
         $post = Post::factory()->count(50)->create();
     }
