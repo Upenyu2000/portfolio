@@ -30,9 +30,9 @@ Route::get('/about/{post?}', function ($post = null) {
     return view('about', ['name' => $post]);
 });
 
-Route::get('/post',[App\Http\Controllers\PostController::class,'index'])->name('posts.index');
+Route::get('/post/{username?}',[App\Http\Controllers\PostController::class,'index'])->name('posts.index');
 
-Route::get('/comment',[App\Http\Controllers\CommentController::class,'index'])->name('comments.index');
+Route::get('/comment/{username?}',[App\Http\Controllers\CommentController::class,'index'])->name('comments.index');
 
 
 Route::get('/contact/{post?}', function ($post = null) {

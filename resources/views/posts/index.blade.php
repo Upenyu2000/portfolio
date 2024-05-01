@@ -6,7 +6,9 @@
     <p>What do you prefer to eat: Answer nigga </p>
     <ul>
         @foreach ($posts as $post)
-            <li> {{ $post ->username}} </li>
+            <li>Name: {{ $post ->username}} </li>
+            <li>Title: {{ $post ->title}} </li>
+            <li>Description: {{ $post ->description}} </li>
             <p></p>
 
         @endforeach

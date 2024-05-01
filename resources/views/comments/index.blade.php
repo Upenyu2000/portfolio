@@ -6,7 +6,10 @@
     <p>Ghad damn boi ths shit hard </p>
     <ul>
         @foreach ($comments as $comment)
-            <li> {{ $comment ->username}} </li>
+
+            <li><a href="/comment/{{$comment->username}}"></a>{{ $comment ->username}} </li>
+            <li>Title: {{ $comment ->title}} </li>
+            <li>Description: {{ $comment ->description}} </li>
             <p></p>
 
         @endforeach

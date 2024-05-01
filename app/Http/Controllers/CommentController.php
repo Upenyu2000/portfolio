@@ -35,9 +35,10 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $username)
     {
-        //
+        $comment = Comment::findOrFail($username);
+        return view("comments.show", ["comment"=> $comment]);
     }
 
     /**
