@@ -34,7 +34,6 @@
 
     <div class="pages">
     <section class="hero">
-            <h1>About Me</h1>
             <br>
             <p class= "intro">Hello, I'm Upenyu, a versatile professional in the realms of software development and data analysis. 
                 Over the years, I've delved into various projects, showcasing my expertise in fields such as object recognition, human skeleton analysis, and web application development. 
@@ -55,6 +54,8 @@
     }
 
     body{
+        
+        background-image: url('https://images6.alphacoders.com/135/thumb-1920-1354555.png');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -67,7 +68,7 @@
 
     a{
         font-size:26px;
-        color:black;
+        color:white;
         padding-top:1px;
         word-spacing:6px;
         
@@ -107,6 +108,7 @@
         font-weight:bold;
         padding:30px;
         text-decoration:none;
+        color:white;
     }
 
     .space{
@@ -132,7 +134,7 @@
 
 
     .intro{
-        color:black;
+        color:white;
         font-size:20px;
 
     }

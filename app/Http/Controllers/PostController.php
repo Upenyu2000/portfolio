@@ -46,9 +46,6 @@ class PostController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
 
      public function show($username)
      {
@@ -56,27 +53,41 @@ class PostController extends Controller
         return view("posts.show", compact('posts'));
      }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+     public function edit($username)
+     {
+         $post = Post::where('username', $username)->first();
+         return view('posts.edit', compact('post'));
+     }
+     
+ 
+     public function update(Request $request, $username)
+     {
+         $validatedData = $request->validate([
+             'title'=> 'required|max:255',
+             'description'=> 'required|max:255',
+         ]);
+ 
+         $post = Post::where('username', $username)->first();
+         if ($post) {
+             $post->title = $validatedData["title"];
+             $post->description = $validatedData["description"];
+             $post->save();
+             return redirect()->route("posts.index")->with('message', 'Post successfully updated.');
+         } else {
+             return redirect()->route("posts.index")->with('error', 'Post not found.');
+         }
+     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(string $username)
     {
-        //
+        $post = Post::where('username', $username)->first();
+        if ($post) {
+            $post->delete();
+            return redirect()->route("posts.index")->with('message', 'Post successfully deleted.');
+        } else {
+            return redirect()->route("posts.index")->with('error', 'Post not found.');
+        }
     }
+    
 }

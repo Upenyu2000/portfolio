@@ -7,9 +7,16 @@
         background-size: cover; 
         background-filter: blur(20px);
     }
+    .button{
+        color:black;
+    }
     table {
         border-collapse: collapse;
         width: 100%;
+    }
+    .delete_button{
+        color:red;
+        background-color:red;
     }
 
     .title {
@@ -18,7 +25,7 @@
 
     th, td {
         border: 1px solid black;
-        padding: 8px;
+        padding: 1em; /* Use relative units for padding */
         text-align: left;
     }
     th {
@@ -32,16 +39,27 @@
             <th>Username</th>
             <th>Title</th>
             <th>Description</th>
+            <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody >
         @foreach($posts as $post)
-        <tr>
-            <th>{{ $post->username ?? 'Unknown Username' }}</th>
-            <th>{{ $post->title }}</th>
-            <th>{{ $post->description }}</th>
+        <tr class='tbody'>
+            <th class='tbody'>{{ $post->username ?? 'Unknown Username' }}</th>
+            <th class='tbody'>{{ $post->title }}</th>
+            <th class='tbody'>{{ $post->description }}</th>
+            <th>
+                <form method="POST" class='delete_button' action="{{ route('posts.destroy', ['username' => $post->username]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
+
+            </th>
         </tr>
         @endforeach
     </tbody>
 </table>
+<button><a href="{{ route('posts.edit', ['username' => $post->username]) }}" class="button">Edit</a>
+<button><a href="{{ route('posts.index') }}" class="button">Back</a></button>
 @endsection

@@ -33,6 +33,9 @@ Route::get('/post',[PostController::class,'index'])->name('posts.index');
 Route::get('/post/create',[PostController::class,'create'])->name('posts.create');
 Route::post('/post',[PostController::class,'store'])->name('posts.store');
 Route::get('/post/{username}',[PostController::class,'show'])->name('posts.show');
+Route::get('/posts/{username}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{username}', [PostController::class, 'update'])->name('posts.update');
+Route::delete('/post/{username}',[PostController::class,'destroy'])->name('posts.destroy');
 
 
 

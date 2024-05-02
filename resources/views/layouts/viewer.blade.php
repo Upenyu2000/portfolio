@@ -110,6 +110,7 @@
     .navbar{
         float:right;
         font-weight:bold;
+        color:white;
         padding:30px;
         text-decoration:none;
     }
