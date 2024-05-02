@@ -1,6 +1,5 @@
 @extends('layouts.viewer')
 
-
 @section('content')
 <style>
     body {
@@ -26,26 +25,23 @@
         background-color: #f2f2f2;
     }
 </style>
-    <tr>
-        <ul>
-        <h2 class="title">Post</h2>
-            <table>
-            <th>Lord i cant do this without you </th>
-            <thead></thead>
-                <th>Username:
-                    @if ( $post ->username)
-                    {{ $post ->username}}
-                
-                    @else 
-                        Unknown Username
-                    @endif</th>
-                    <thead></thead>
-                <th>Title: {{ $post ->title}} </th>
-                <thead></thead>
-                <th>Description: {{ $post ->description}} </th>
-                <thead></thead>
-            </table>
-                <p></p>
-        </ul>
-    </tr>
+<h2 class="title">Posts</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($posts as $post)
+        <tr>
+            <th>{{ $post->username ?? 'Unknown Username' }}</th>
+            <th>{{ $post->title }}</th>
+            <th>{{ $post->description }}</th>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 @endsection

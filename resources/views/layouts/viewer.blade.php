@@ -29,6 +29,15 @@
         </a>
         </nav>
     </div>
+    <div class='session'></div>
+        @if ($errors ->any())
+                        <ul style="color: white;">Errors: {{$errors}}</ul>
+        @endif
+
+        @if (session('message'))
+            <p><b>{{session('message')}}</b></p>
+        @endif
+    </div>
     <section class="hero">
         <h1>@yield('title')</h1>
         <div>
@@ -36,6 +45,7 @@
             @yield('styles')
         </div>
     </section>
+
 </body>
 
 
@@ -53,6 +63,10 @@
         background-size: cover;
         background-position:center;
         opacity: 0.8;
+    }
+    .session{
+        color:white;
+        padding-top:20vh;
     }
 
 
@@ -105,7 +119,7 @@
         height: 60vh;
         display:flex;
         justify-content:center;
-        padding-top:25vh;
+        padding-top:10vh;
         margin:auto;
 
     }

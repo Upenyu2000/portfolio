@@ -52,8 +52,8 @@ class PostController extends Controller
 
      public function show($username)
      {
-         $post = Post::where('username', $username)->firstOrFail();
-         return view("posts.show", compact('post'));
+        $posts = Post::where('username', $username)->get();
+        return view("posts.show", compact('posts'));
      }
 
     /**

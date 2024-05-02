@@ -24,7 +24,7 @@
 </style>
 <p></p>
 <a href="{{ route('posts.create')}}" style="color: green;">Create a Post</a>
-<h2>Posted information</h2>
+<h2 style="color: blue;">Posted information</h2>
 <table border="1">
     <thead>
         <tr>

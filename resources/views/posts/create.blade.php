@@ -50,6 +50,7 @@
 @endsection
 
 @section('content')
+
         <h2>Create a Post</h2>
         <form method="POST" action="{{route('posts.store')}}">
             @csrf
