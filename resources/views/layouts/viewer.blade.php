@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    @livewireStyles
     <title>Post</title>
 </head>
 <body>
@@ -38,6 +38,7 @@
             <p><b>{{session('message')}}</b></p>
         @endif
     </div>
+    <livewire:counter class='livewire'/>
     <section class="hero">
         <h1>@yield('title')</h1>
         <div>
@@ -45,7 +46,7 @@
             @yield('styles')
         </div>
     </section>
-
+    @livewireScripts
 </body>
 
 
@@ -55,6 +56,9 @@
         color:black;
         text-decoration:none;
         word-spacing:4px;
+    }
+    .livewire{
+        color: white;
     }
 
     body{
