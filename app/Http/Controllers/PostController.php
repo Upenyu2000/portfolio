@@ -12,16 +12,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
-        return view("posts.index", ["posts"=> $post]);
+        $posts = Post::all();
+        return view("posts.index", compact('posts'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -29,17 +28,33 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'username'=> 'required|max:20',
+            'title'=> 'required|max:255',
+            'description'=> 'required|max:255',
+        ]);
+
+        $post = new Post;
+        $post->username = $validate["username"];
+        $post->title = $validate["title"];
+        $post->description = $validate["description"];
+        $post->save();
+
+        session()->flash("message","Sucessfully posted");
+        return redirect()->route("posts.index");
+
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $username)
-    {
-        $post = Post::findOrFail($username);
-        return view("posts.show", ["post"=> $post]);
-    }
+
+     public function show($username)
+     {
+         $post = Post::where('username', $username)->firstOrFail();
+         return view("posts.show", compact('post'));
+     }
 
     /**
      * Show the form for editing the specified resource.

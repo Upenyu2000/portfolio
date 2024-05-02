@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,22 +25,20 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/home/{post?}', function ($post = null) {
-    return view('homepage', ['name' => $post]);
+Route::get('/home', function () {
+    return view('homepage');
 });
 
-Route::get('/about/{post?}', function ($post = null) {
-    return view('about', ['name' => $post]);
-});
-
-Route::get('/post/{username?}',[App\Http\Controllers\PostController::class,'index'])->name('posts.index');
-
-Route::get('/comment/{username?}',[App\Http\Controllers\CommentController::class,'index'])->name('comments.index');
+Route::get('/post',[PostController::class,'index'])->name('posts.index');
+Route::get('/post/create',[PostController::class,'create'])->name('posts.create');
+Route::post('/post',[PostController::class,'store'])->name('posts.store');
+Route::get('/post/{username}',[PostController::class,'show'])->name('posts.show');
 
 
-Route::get('/contact/{post?}', function ($post = null) {
-    return view('contact', ['name' => $post]);
-});
+
+Route::get('/comment',[CommentController::class,'index']);
+Route::get('post/{username}/comment',[CommentController::class,'show'])->name('comments.show');
+
 
 
 Route::get('/dashboard', function () {

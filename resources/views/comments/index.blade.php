@@ -1,13 +1,13 @@
 @extends('layouts.viewer')
 
-@section('title','Lets comment in this lil bitch')
+@section('title','Makadii henyu')
 
 @section('content')
-    <p>Ghad damn boi ths shit hard </p>
+    <p>Titambirewo </p>
     <ul>
         @foreach ($comments as $comment)
 
-            <li><a href="/comment/{{$comment->username}}"></a>{{ $comment ->username}} </li>
+            <li>Username:<a href="{{ route('comments.show', ['username' => $comment ->username]) }}">{{ $comment ->username}} </a></li>
             <li>Title: {{ $comment ->title}} </li>
             <li>Description: {{ $comment ->description}} </li>
             <p></p>

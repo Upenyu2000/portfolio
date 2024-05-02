@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -35,11 +36,12 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $username)
+    public function show($username)
     {
-        $comment = Comment::findOrFail($username);
-        return view("comments.show", ["comment"=> $comment]);
+        $comment = Comment::where('username', $username)->firstOrFail();
+        return view("comments.show", compact('comment'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

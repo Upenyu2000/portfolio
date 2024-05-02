@@ -17,8 +17,8 @@
             Home
         </a>
         
-        <a href="http://localhost/chat">
-            Chat
+        <a href="http://localhost/post">
+            Post
         </a>
 
         <a href="http://localhost/about">
@@ -36,7 +36,7 @@
     <section class="hero">
             <h1>About Me</h1>
             <br>
-            <p class= "intro">Hello, I'm Upenyu Hlangabeza, a versatile professional in the realms of software development and data analysis. 
+            <p class= "intro">Hello, I'm Upenyu, a versatile professional in the realms of software development and data analysis. 
                 Over the years, I've delved into various projects, showcasing my expertise in fields such as object recognition, human skeleton analysis, and web application development. 
                 With a passion for innovation and problem-solving, I thrive on bringing ideas to life through code and data insights. 
                 Explore my journey and the projects I've undertaken to witness firsthand the fusion of technology and creativity in action.</p>
@@ -119,10 +119,10 @@
         height: 60vh;
         display:flex;
         justify-content:center;
-        padding-top:60vh;
+        padding-top:25vh;
         margin:auto;
-
     }    
+    
     .hero{
         z-index:-1;
 
